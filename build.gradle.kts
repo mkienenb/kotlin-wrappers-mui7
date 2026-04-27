@@ -2,13 +2,13 @@ plugins {
     kotlin("multiplatform") version "2.3.21"
     id("io.github.turansky.seskar") version "4.40.0"
     `maven-publish`
+    signing
 }
 
-group = "org.gamenet.kotlin-wrappers.experimental"
+group = "io.github.mkienenb.kotlin-wrappers.experimental"
 version = "7.3.10-pre.3"
 
-val githubPackagesOwner = "mkienenb"
-val githubPackagesRepository = "kotlin-wrapper-mui7"
+val projectRepositoryUrl = "https://github.com/mkienenb/kotlin-wrapper-mui7"
 
 val commonFreeCompilerArgs = listOf(
     "-Xexpect-actual-classes",
@@ -68,18 +68,64 @@ dependencies {
 }
 
 publishing {
+    publications.withType<MavenPublication>().configureEach {
+        pom {
+            name = "Kotlin Wrapper for MUI 7"
+            description = "Experimental Kotlin/JS wrappers for Material UI 7."
+            url = projectRepositoryUrl
+
+            licenses {
+                license {
+                    name = "The Apache License, Version 2.0"
+                    url = "https://www.apache.org/licenses/LICENSE-2.0.txt"
+                }
+            }
+
+            developers {
+                developer {
+                    id = "mkienenb"
+                    name = "mkienenb"
+                }
+            }
+
+            scm {
+                connection = "scm:git:$projectRepositoryUrl.git"
+                developerConnection = "scm:git:$projectRepositoryUrl.git"
+                url = projectRepositoryUrl
+            }
+        }
+    }
+
     repositories {
         maven {
             name = "localBuildRepo"
             url = layout.buildDirectory.dir("repo").get().asFile.toURI()
         }
         maven {
-            name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/$githubPackagesOwner/$githubPackagesRepository")
+            name = "CentralPortalSnapshots"
+            url = uri("https://central.sonatype.com/repository/maven-snapshots/")
             credentials(PasswordCredentials::class) {
-                username = System.getenv("GITHUB_ACTOR")
-                password = System.getenv("PUBLISH_TOKEN") ?: System.getenv("GITHUB_TOKEN")
+                username = System.getenv("MAVEN_CENTRAL_USERNAME") ?: "mkienenb"
+                password = System.getenv("MAVEN_CENTRAL_PASSWORD")
+            }
+            mavenContent {
+                snapshotsOnly()
             }
         }
     }
+}
+
+signing {
+    val signingKey = System.getenv("MAVEN_CENTRAL_SIGNING_KEY")
+    val signingPassword = System.getenv("MAVEN_CENTRAL_SIGNING_PASSWORD")
+
+    setRequired {
+        gradle.taskGraph.allTasks.any {
+            it.name.contains("CentralPortal", ignoreCase = true) ||
+                it.name.contains("CentralSnapshots", ignoreCase = true)
+        }
+    }
+
+    useInMemoryPgpKeys(signingKey, signingPassword)
+    sign(publishing.publications)
 }

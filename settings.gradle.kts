@@ -1,11 +1,15 @@
-rootProject.name = "mui-7"
-
 pluginManagement {
     repositories {
         gradlePluginPortal()
         mavenCentral()
     }
 }
+
+plugins {
+    id("com.gradleup.nmcp.settings") version "1.4.4"
+}
+
+rootProject.name = "kotlin-wrapper-mui7"
 
 dependencyResolutionManagement {
     repositories {
@@ -21,3 +25,16 @@ dependencyResolutionManagement {
 }
 
 include("proof")
+
+nmcpSettings {
+    centralPortal {
+        username = providers.environmentVariable("MAVEN_CENTRAL_USERNAME")
+            .orElse("mkienenb")
+            .get()
+        password = providers.environmentVariable("MAVEN_CENTRAL_PASSWORD")
+            .orElse("")
+            .get()
+        publishingType = "USER_MANAGED"
+        publicationName = rootProject.name
+    }
+}

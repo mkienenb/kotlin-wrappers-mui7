@@ -4,7 +4,7 @@ Standalone Kotlin/JS wrappers for the scoped MUI 7 surface implemented in this d
 
 ## What this publishes
 
-- Group: `org.gamenet.kotlin-wrappers.experimental`
+- Group: `io.github.mkienenb.kotlin-wrappers.experimental`
 - Artifact: `mui-7`
 - JS artifact: `mui-7-js`
 - Version: `7.3.10-pre.3`
