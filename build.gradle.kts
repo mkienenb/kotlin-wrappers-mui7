@@ -84,7 +84,10 @@ publishing {
             developers {
                 developer {
                     id = "mkienenb"
-                    name = "mkienenb"
+                    name = "Mike Kienenberger"
+                    email = "mkienenb@gmail.com"
+                    organization = "mkienenb"
+                    organizationUrl = "https://github.com/mkienenb"
                 }
             }
 
