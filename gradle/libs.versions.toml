@@ -1,0 +1,14 @@
+[versions]
+kotlin = "2.3.21"
+seskar = "4.40.0"
+nmcp = "1.4.4"
+emotion-react = "^11.14.0"
+emotion-styled = "^11.14.1"
+mui = "7.3.10"
+react = "^19.2.5"
+reactdom = "^19.2.5"
+
+[plugins]
+kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+seskar = { id = "io.github.turansky.seskar", version.ref = "seskar" }
+nmcp-settings = { id = "com.gradleup.nmcp.settings", version.ref = "nmcp" }

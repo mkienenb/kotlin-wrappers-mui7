@@ -1,6 +1,6 @@
 plugins {
-    kotlin("multiplatform") version "2.3.21"
-    id("io.github.turansky.seskar") version "4.40.0"
+    alias(libs.plugins.kotlin.multiplatform)
+    alias(libs.plugins.seskar)
     `maven-publish`
     signing
 }
@@ -58,13 +58,13 @@ dependencies {
     add("jsMainApi", kotlinWrappers.reactDom)
     add("jsMainApi", kotlinWrappers.csstype)
 
-    add("webMainApi", npm("@emotion/react", "^11.14.0"))
-    add("webMainApi", npm("@emotion/styled", "^11.14.1"))
-    add("webMainApi", npm("@mui/icons-material", "7.3.10"))
-    add("webMainApi", npm("@mui/material", "7.3.10"))
-    add("webMainApi", npm("@mui/system", "7.3.10"))
-    add("webMainApi", npm("react", "^19.2.5"))
-    add("webMainApi", npm("react-dom", "^19.2.5"))
+    add("webMainApi", npm("@emotion/react", libs.versions.emotion.react.get()))
+    add("webMainApi", npm("@emotion/styled", libs.versions.emotion.styled.get()))
+    add("webMainApi", npm("@mui/icons-material", libs.versions.mui.get()))
+    add("webMainApi", npm("@mui/material", libs.versions.mui.get()))
+    add("webMainApi", npm("@mui/system", libs.versions.mui.get()))
+    add("webMainApi", npm("react", libs.versions.react.get()))
+    add("webMainApi", npm("react-dom", libs.versions.reactdom.get()))
 }
 
 publishing {

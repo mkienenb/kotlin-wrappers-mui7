@@ -6,7 +6,8 @@ pluginManagement {
 }
 
 plugins {
-    id("com.gradleup.nmcp.settings") version "1.4.4"
+    val comGradleupNmcpSettingsVersion = extra["com-gradleup-nmcp-settings.version"] as String
+    id("com.gradleup.nmcp.settings") version comGradleupNmcpSettingsVersion
 }
 
 rootProject.name = "kotlin-wrapper-mui7"
