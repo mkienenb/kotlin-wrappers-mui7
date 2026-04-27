@@ -11,6 +11,12 @@ group = "io.github.mkienenb.kotlin-wrappers.experimental"
 version = "7.3.10-pre.4"
 
 val projectRepositoryUrl = "https://github.com/mkienenb/kotlin-wrapper-mui7"
+val mavenCentralUsernameEnv = "MAVEN_CENTRAL_USERNAME"
+val mavenCentralPasswordEnv = "MAVEN_CENTRAL_PASSWORD"
+val mavenCentralSigningKeyEnv = "MAVEN_CENTRAL_SIGNING_KEY"
+val mavenCentralSigningPasswordEnv = "MAVEN_CENTRAL_SIGNING_PASSWORD"
+val centralPortalSnapshotsUrl = "https://central.sonatype.com/repository/maven-snapshots/"
+val centralPortalPublishingType = "USER_MANAGED"
 
 val commonFreeCompilerArgs = listOf(
     "-Xexpect-actual-classes",
@@ -115,10 +121,10 @@ publishing {
         }
         maven {
             name = "CentralPortalSnapshots"
-            url = uri("https://central.sonatype.com/repository/maven-snapshots/")
+            url = uri(centralPortalSnapshotsUrl)
             credentials(PasswordCredentials::class) {
-                username = System.getenv("MAVEN_CENTRAL_USERNAME")
-                password = System.getenv("MAVEN_CENTRAL_PASSWORD")
+                username = System.getenv(mavenCentralUsernameEnv)
+                password = System.getenv(mavenCentralPasswordEnv)
             }
             mavenContent {
                 snapshotsOnly()
@@ -129,9 +135,9 @@ publishing {
 
 nmcp {
     publishAllPublicationsToCentralPortal {
-        username.set(providers.environmentVariable("MAVEN_CENTRAL_USERNAME"))
-        password.set(providers.environmentVariable("MAVEN_CENTRAL_PASSWORD"))
-        publishingType.set("USER_MANAGED")
+        username.set(providers.environmentVariable(mavenCentralUsernameEnv))
+        password.set(providers.environmentVariable(mavenCentralPasswordEnv))
+        publishingType.set(centralPortalPublishingType)
         publicationName.set(rootProject.name)
     }
 }
@@ -141,8 +147,8 @@ tasks.withType<AbstractPublishToMaven>().configureEach {
 }
 
 signing {
-    val signingKey = System.getenv("MAVEN_CENTRAL_SIGNING_KEY")
-    val signingPassword = System.getenv("MAVEN_CENTRAL_SIGNING_PASSWORD")
+    val signingKey = System.getenv(mavenCentralSigningKeyEnv)
+    val signingPassword = System.getenv(mavenCentralSigningPasswordEnv)
 
     setRequired {
         gradle.taskGraph.allTasks.any {
