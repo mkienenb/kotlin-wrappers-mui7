@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.dokka)
+    alias(libs.plugins.nmcp)
     alias(libs.plugins.seskar)
     `maven-publish`
     signing
@@ -116,13 +117,22 @@ publishing {
             name = "CentralPortalSnapshots"
             url = uri("https://central.sonatype.com/repository/maven-snapshots/")
             credentials(PasswordCredentials::class) {
-                username = System.getenv("MAVEN_CENTRAL_USERNAME") ?: "mkienenb"
+                username = System.getenv("MAVEN_CENTRAL_USERNAME")
                 password = System.getenv("MAVEN_CENTRAL_PASSWORD")
             }
             mavenContent {
                 snapshotsOnly()
             }
         }
+    }
+}
+
+nmcp {
+    publishAllPublicationsToCentralPortal {
+        username.set(providers.environmentVariable("MAVEN_CENTRAL_USERNAME"))
+        password.set(providers.environmentVariable("MAVEN_CENTRAL_PASSWORD"))
+        publishingType.set("USER_MANAGED")
+        publicationName.set(rootProject.name)
     }
 }
 

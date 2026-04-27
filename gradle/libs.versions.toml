@@ -13,4 +13,4 @@ reactdom = "^19.2.5"
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
 seskar = { id = "io.github.turansky.seskar", version.ref = "seskar" }
-nmcp-settings = { id = "com.gradleup.nmcp.settings", version.ref = "nmcp" }
+nmcp = { id = "com.gradleup.nmcp", version.ref = "nmcp" }
