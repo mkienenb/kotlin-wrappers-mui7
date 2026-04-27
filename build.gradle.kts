@@ -1,12 +1,13 @@
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
+    alias(libs.plugins.dokka)
     alias(libs.plugins.seskar)
     `maven-publish`
     signing
 }
 
 group = "io.github.mkienenb.kotlin-wrappers.experimental"
-version = "7.3.10-pre.3"
+version = "7.3.10-pre.4"
 
 val projectRepositoryUrl = "https://github.com/mkienenb/kotlin-wrapper-mui7"
 
@@ -67,8 +68,15 @@ dependencies {
     add("webMainApi", npm("react-dom", libs.versions.reactdom.get()))
 }
 
+val javadocJar by tasks.registering(Jar::class) {
+    dependsOn(tasks.named("dokkaGeneratePublicationHtml"))
+    archiveClassifier = "javadoc"
+    from(layout.buildDirectory.dir("dokka/html"))
+}
+
 publishing {
     publications.withType<MavenPublication>().configureEach {
+        artifact(javadocJar)
         pom {
             name = "Kotlin Wrapper for MUI 7"
             description = "Experimental Kotlin/JS wrappers for Material UI 7."
@@ -116,6 +124,10 @@ publishing {
             }
         }
     }
+}
+
+tasks.withType<AbstractPublishToMaven>().configureEach {
+    mustRunAfter(tasks.withType<Sign>())
 }
 
 signing {
