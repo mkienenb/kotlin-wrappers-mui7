@@ -14,3 +14,7 @@ updates:
     commit-message:
       prefix: "fix(dependencies)"
     registries: "*"
+    groups:
+      all:
+        patterns:
+          - "*"
