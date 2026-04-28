@@ -1,6 +1,6 @@
 [versions]
 kotlin = "2.3.21"
-dokka = "2.0.0"
+dokka = "2.2.0"
 seskar = "4.40.0"
 nmcp = "1.4.4"
 emotion-react = "^11.14.0"
