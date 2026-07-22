@@ -654,3 +654,18 @@ sealed external interface ImageListVariant {
         @JsValue("woven") val woven: ImageListVariant
     }
 }
+
+sealed external interface ImageListItemBarActionPosition {
+    companion object {
+        @JsValue("left") val left: ImageListItemBarActionPosition
+        @JsValue("right") val right: ImageListItemBarActionPosition
+    }
+}
+
+sealed external interface ImageListItemBarPosition {
+    companion object {
+        @JsValue("below") val below: ImageListItemBarPosition
+        @JsValue("bottom") val bottom: ImageListItemBarPosition
+        @JsValue("top") val top: ImageListItemBarPosition
+    }
+}
