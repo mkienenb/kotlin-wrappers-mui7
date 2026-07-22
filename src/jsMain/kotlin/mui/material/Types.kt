@@ -436,3 +436,11 @@ sealed external interface RatingSize {
         @JsValue("large") val large: RatingSize
     }
 }
+
+sealed external interface SelectVariant {
+    companion object {
+        @JsValue("filled") val filled: SelectVariant
+        @JsValue("outlined") val outlined: SelectVariant
+        @JsValue("standard") val standard: SelectVariant
+    }
+}
