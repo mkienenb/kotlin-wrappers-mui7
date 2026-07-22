@@ -393,3 +393,10 @@ sealed external interface IconButtonSize {
         @JsValue("large") val large: IconButtonSize
     }
 }
+
+sealed external interface InputAdornmentPosition {
+    companion object {
+        @JsValue("start") val start: InputAdornmentPosition
+        @JsValue("end") val end: InputAdornmentPosition
+    }
+}
