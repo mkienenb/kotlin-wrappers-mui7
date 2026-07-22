@@ -960,3 +960,20 @@ sealed external interface ContainerMaxWidth {
         @JsValue("xl") val xl: ContainerMaxWidth
     }
 }
+
+sealed external interface GridDirection {
+    companion object {
+        @JsValue("column") val column: GridDirection
+        @JsValue("column-reverse") val columnReverse: GridDirection
+        @JsValue("row") val row: GridDirection
+        @JsValue("row-reverse") val rowReverse: GridDirection
+    }
+}
+
+sealed external interface GridWrap {
+    companion object {
+        @JsValue("nowrap") val nowrap: GridWrap
+        @JsValue("wrap") val wrap: GridWrap
+        @JsValue("wrap-reverse") val wrapReverse: GridWrap
+    }
+}
