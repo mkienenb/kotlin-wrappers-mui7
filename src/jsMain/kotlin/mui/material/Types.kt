@@ -766,3 +766,20 @@ sealed external interface TableSortLabelDirection {
         @JsValue("desc") val desc: TableSortLabelDirection
     }
 }
+
+sealed external interface TooltipPlacement {
+    companion object {
+        @JsValue("bottom") val bottom: TooltipPlacement
+        @JsValue("bottom-end") val bottomEnd: TooltipPlacement
+        @JsValue("bottom-start") val bottomStart: TooltipPlacement
+        @JsValue("left") val left: TooltipPlacement
+        @JsValue("left-end") val leftEnd: TooltipPlacement
+        @JsValue("left-start") val leftStart: TooltipPlacement
+        @JsValue("right") val right: TooltipPlacement
+        @JsValue("right-end") val rightEnd: TooltipPlacement
+        @JsValue("right-start") val rightStart: TooltipPlacement
+        @JsValue("top") val top: TooltipPlacement
+        @JsValue("top-end") val topEnd: TooltipPlacement
+        @JsValue("top-start") val topStart: TooltipPlacement
+    }
+}
