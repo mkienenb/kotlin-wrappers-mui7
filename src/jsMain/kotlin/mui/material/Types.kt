@@ -523,3 +523,23 @@ sealed external interface TextFieldVariant {
         @JsValue("standard") val standard: TextFieldVariant
     }
 }
+
+sealed external interface ToggleButtonColor {
+    companion object {
+        @JsValue("standard") val standard: ToggleButtonColor
+        @JsValue("primary") val primary: ToggleButtonColor
+        @JsValue("secondary") val secondary: ToggleButtonColor
+        @JsValue("error") val error: ToggleButtonColor
+        @JsValue("info") val info: ToggleButtonColor
+        @JsValue("success") val success: ToggleButtonColor
+        @JsValue("warning") val warning: ToggleButtonColor
+    }
+}
+
+sealed external interface ToggleButtonSize {
+    companion object {
+        @JsValue("small") val small: ToggleButtonSize
+        @JsValue("medium") val medium: ToggleButtonSize
+        @JsValue("large") val large: ToggleButtonSize
+    }
+}
