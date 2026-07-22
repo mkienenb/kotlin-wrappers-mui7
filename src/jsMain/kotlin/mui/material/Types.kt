@@ -284,3 +284,23 @@ sealed external interface ButtonGroupVariant {
         @JsValue("contained") val contained: ButtonGroupVariant
     }
 }
+
+sealed external interface CheckboxColor {
+    companion object {
+        @JsValue("default") val default: CheckboxColor
+        @JsValue("primary") val primary: CheckboxColor
+        @JsValue("secondary") val secondary: CheckboxColor
+        @JsValue("error") val error: CheckboxColor
+        @JsValue("info") val info: CheckboxColor
+        @JsValue("success") val success: CheckboxColor
+        @JsValue("warning") val warning: CheckboxColor
+    }
+}
+
+sealed external interface CheckboxSize {
+    companion object {
+        @JsValue("small") val small: CheckboxSize
+        @JsValue("medium") val medium: CheckboxSize
+        @JsValue("large") val large: CheckboxSize
+    }
+}
