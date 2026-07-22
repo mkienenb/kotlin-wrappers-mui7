@@ -1010,3 +1010,11 @@ sealed external interface ModalCloseReason {
         @JsValue("escapeKeyDown") val escapeKeyDown: ModalCloseReason
     }
 }
+
+sealed external interface PopoverAnchorReference {
+    companion object {
+        @JsValue("anchorEl") val anchorEl: PopoverAnchorReference
+        @JsValue("anchorPosition") val anchorPosition: PopoverAnchorReference
+        @JsValue("none") val none: PopoverAnchorReference
+    }
+}
