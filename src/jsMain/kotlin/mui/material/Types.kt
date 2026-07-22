@@ -408,3 +408,23 @@ sealed external interface NativeSelectVariant {
         @JsValue("standard") val standard: NativeSelectVariant
     }
 }
+
+sealed external interface RadioColor {
+    companion object {
+        @JsValue("default") val default: RadioColor
+        @JsValue("primary") val primary: RadioColor
+        @JsValue("secondary") val secondary: RadioColor
+        @JsValue("error") val error: RadioColor
+        @JsValue("info") val info: RadioColor
+        @JsValue("success") val success: RadioColor
+        @JsValue("warning") val warning: RadioColor
+    }
+}
+
+sealed external interface RadioSize {
+    companion object {
+        @JsValue("small") val small: RadioSize
+        @JsValue("medium") val medium: RadioSize
+        @JsValue("large") val large: RadioSize
+    }
+}
