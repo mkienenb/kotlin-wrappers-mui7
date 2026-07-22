@@ -543,3 +543,22 @@ sealed external interface ToggleButtonSize {
         @JsValue("large") val large: ToggleButtonSize
     }
 }
+
+sealed external interface ToggleButtonGroupColor {
+    companion object {
+        @JsValue("standard") val standard: ToggleButtonGroupColor
+        @JsValue("primary") val primary: ToggleButtonGroupColor
+        @JsValue("secondary") val secondary: ToggleButtonGroupColor
+        @JsValue("error") val error: ToggleButtonGroupColor
+        @JsValue("info") val info: ToggleButtonGroupColor
+        @JsValue("success") val success: ToggleButtonGroupColor
+        @JsValue("warning") val warning: ToggleButtonGroupColor
+    }
+}
+
+sealed external interface ToggleButtonGroupOrientation {
+    companion object {
+        @JsValue("horizontal") val horizontal: ToggleButtonGroupOrientation
+        @JsValue("vertical") val vertical: ToggleButtonGroupOrientation
+    }
+}
