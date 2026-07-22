@@ -1038,3 +1038,12 @@ sealed external interface PopperPlacement {
         @JsValue("top-start") val topStart: PopperPlacement
     }
 }
+
+sealed external interface SlideDirection {
+    companion object {
+        @JsValue("down") val down: SlideDirection
+        @JsValue("left") val left: SlideDirection
+        @JsValue("right") val right: SlideDirection
+        @JsValue("up") val up: SlideDirection
+    }
+}
