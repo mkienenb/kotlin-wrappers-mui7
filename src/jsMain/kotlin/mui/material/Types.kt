@@ -171,6 +171,34 @@ sealed external interface CircularProgressVariant {
     }
 }
 
+sealed external interface AlertSeverity {
+    companion object {
+        @JsValue("error")
+        val error: AlertSeverity
+
+        @JsValue("warning")
+        val warning: AlertSeverity
+
+        @JsValue("info")
+        val info: AlertSeverity
+
+        @JsValue("success")
+        val success: AlertSeverity
+    }
+}
+
+sealed external interface AlertVariant {
+    companion object {
+        @JsValue("standard")
+        val standard: AlertVariant
+
+        @JsValue("filled")
+        val filled: AlertVariant
+
+        @JsValue("outlined")
+        val outlined: AlertVariant
+    }
+}
 sealed external interface AccordionVariant {
     companion object {
         @JsValue("standard")
