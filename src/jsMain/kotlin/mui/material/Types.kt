@@ -911,3 +911,20 @@ sealed external interface StepperOrientation {
         @JsValue("vertical") val vertical: StepperOrientation
     }
 }
+
+sealed external interface TabIconPosition {
+    companion object {
+        @JsValue("bottom") val bottom: TabIconPosition
+        @JsValue("end") val end: TabIconPosition
+        @JsValue("start") val start: TabIconPosition
+        @JsValue("top") val top: TabIconPosition
+    }
+}
+
+sealed external interface TabTextColor {
+    companion object {
+        @JsValue("inherit") val inherit: TabTextColor
+        @JsValue("primary") val primary: TabTextColor
+        @JsValue("secondary") val secondary: TabTextColor
+    }
+}
