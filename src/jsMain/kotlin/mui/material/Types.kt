@@ -400,3 +400,11 @@ sealed external interface InputAdornmentPosition {
         @JsValue("end") val end: InputAdornmentPosition
     }
 }
+
+sealed external interface NativeSelectVariant {
+    companion object {
+        @JsValue("filled") val filled: NativeSelectVariant
+        @JsValue("outlined") val outlined: NativeSelectVariant
+        @JsValue("standard") val standard: NativeSelectVariant
+    }
+}
