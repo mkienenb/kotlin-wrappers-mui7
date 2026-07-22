@@ -854,3 +854,10 @@ sealed external interface DrawerVariant {
         @JsValue("temporary") val temporary: DrawerVariant
     }
 }
+
+sealed external interface MenuVariant {
+    companion object {
+        @JsValue("menu") val menu: MenuVariant
+        @JsValue("selectedMenu") val selectedMenu: MenuVariant
+    }
+}
