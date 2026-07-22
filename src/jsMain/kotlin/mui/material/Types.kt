@@ -304,3 +304,31 @@ sealed external interface CheckboxSize {
         @JsValue("large") val large: CheckboxSize
     }
 }
+
+sealed external interface FabColor {
+    companion object {
+        @JsValue("default") val default: FabColor
+        @JsValue("inherit") val inherit: FabColor
+        @JsValue("primary") val primary: FabColor
+        @JsValue("secondary") val secondary: FabColor
+        @JsValue("success") val success: FabColor
+        @JsValue("error") val error: FabColor
+        @JsValue("info") val info: FabColor
+        @JsValue("warning") val warning: FabColor
+    }
+}
+
+sealed external interface FabSize {
+    companion object {
+        @JsValue("small") val small: FabSize
+        @JsValue("medium") val medium: FabSize
+        @JsValue("large") val large: FabSize
+    }
+}
+
+sealed external interface FabVariant {
+    companion object {
+        @JsValue("circular") val circular: FabVariant
+        @JsValue("extended") val extended: FabVariant
+    }
+}
