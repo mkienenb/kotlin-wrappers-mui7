@@ -428,3 +428,11 @@ sealed external interface RadioSize {
         @JsValue("large") val large: RadioSize
     }
 }
+
+sealed external interface RatingSize {
+    companion object {
+        @JsValue("small") val small: RatingSize
+        @JsValue("medium") val medium: RatingSize
+        @JsValue("large") val large: RatingSize
+    }
+}
