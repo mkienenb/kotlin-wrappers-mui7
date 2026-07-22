@@ -821,3 +821,12 @@ sealed external interface LinearProgressVariant {
         @JsValue("query") val query: LinearProgressVariant
     }
 }
+
+sealed external interface SkeletonVariant {
+    companion object {
+        @JsValue("circular") val circular: SkeletonVariant
+        @JsValue("rectangular") val rectangular: SkeletonVariant
+        @JsValue("rounded") val rounded: SkeletonVariant
+        @JsValue("text") val text: SkeletonVariant
+    }
+}
