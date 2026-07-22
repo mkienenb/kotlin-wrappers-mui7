@@ -759,3 +759,10 @@ sealed external interface TableCellVariant {
         @JsValue("head") val head: TableCellVariant
     }
 }
+
+sealed external interface TableSortLabelDirection {
+    companion object {
+        @JsValue("asc") val asc: TableSortLabelDirection
+        @JsValue("desc") val desc: TableSortLabelDirection
+    }
+}
