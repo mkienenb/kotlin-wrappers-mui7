@@ -719,3 +719,43 @@ sealed external interface TableSize {
         @JsValue("small") val small: TableSize
     }
 }
+
+sealed external interface TableCellAlign {
+    companion object {
+        @JsValue("center") val center: TableCellAlign
+        @JsValue("inherit") val inherit: TableCellAlign
+        @JsValue("justify") val justify: TableCellAlign
+        @JsValue("left") val left: TableCellAlign
+        @JsValue("right") val right: TableCellAlign
+    }
+}
+
+sealed external interface TableCellPadding {
+    companion object {
+        @JsValue("checkbox") val checkbox: TableCellPadding
+        @JsValue("none") val none: TableCellPadding
+        @JsValue("normal") val normal: TableCellPadding
+    }
+}
+
+sealed external interface TableCellSize {
+    companion object {
+        @JsValue("medium") val medium: TableCellSize
+        @JsValue("small") val small: TableCellSize
+    }
+}
+
+sealed external interface TableCellSortDirection {
+    companion object {
+        @JsValue("asc") val asc: TableCellSortDirection
+        @JsValue("desc") val desc: TableCellSortDirection
+    }
+}
+
+sealed external interface TableCellVariant {
+    companion object {
+        @JsValue("body") val body: TableCellVariant
+        @JsValue("footer") val footer: TableCellVariant
+        @JsValue("head") val head: TableCellVariant
+    }
+}
