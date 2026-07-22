@@ -199,6 +199,30 @@ sealed external interface AlertVariant {
         val outlined: AlertVariant
     }
 }
+
+sealed external interface SnackbarOriginVertical {
+    companion object {
+        @JsValue("top")
+        val top: SnackbarOriginVertical
+
+        @JsValue("bottom")
+        val bottom: SnackbarOriginVertical
+    }
+}
+
+sealed external interface SnackbarOriginHorizontal {
+    companion object {
+        @JsValue("left")
+        val left: SnackbarOriginHorizontal
+
+        @JsValue("center")
+        val center: SnackbarOriginHorizontal
+
+        @JsValue("right")
+        val right: SnackbarOriginHorizontal
+    }
+}
+
 sealed external interface AccordionVariant {
     companion object {
         @JsValue("standard")
@@ -206,5 +230,21 @@ sealed external interface AccordionVariant {
 
         @JsValue("outlined")
         val outlined: AccordionVariant
+    }
+}
+
+sealed external interface AlertColor {
+    companion object {
+        @JsValue("error")
+        val error: AlertColor
+
+        @JsValue("warning")
+        val warning: AlertColor
+
+        @JsValue("info")
+        val info: AlertColor
+
+        @JsValue("success")
+        val success: AlertColor
     }
 }
