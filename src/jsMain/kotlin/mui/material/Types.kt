@@ -883,3 +883,15 @@ sealed external interface PaginationVariant {
         @JsValue("text") val text: PaginationVariant
     }
 }
+
+sealed external interface PaginationItemType {
+    companion object {
+        @JsValue("end-ellipsis") val endEllipsis: PaginationItemType
+        @JsValue("first") val first: PaginationItemType
+        @JsValue("last") val last: PaginationItemType
+        @JsValue("next") val next: PaginationItemType
+        @JsValue("page") val page: PaginationItemType
+        @JsValue("previous") val previous: PaginationItemType
+        @JsValue("start-ellipsis") val startEllipsis: PaginationItemType
+    }
+}
