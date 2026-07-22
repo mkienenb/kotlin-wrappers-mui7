@@ -696,3 +696,11 @@ sealed external interface ListItemAlignItems {
         @JsValue("flex-start") val flexStart: ListItemAlignItems
     }
 }
+
+sealed external interface ListSubheaderColor {
+    companion object {
+        @JsValue("default") val default: ListSubheaderColor
+        @JsValue("inherit") val inherit: ListSubheaderColor
+        @JsValue("primary") val primary: ListSubheaderColor
+    }
+}
