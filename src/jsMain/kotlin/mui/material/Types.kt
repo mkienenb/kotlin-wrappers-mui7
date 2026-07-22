@@ -895,3 +895,12 @@ sealed external interface PaginationItemType {
         @JsValue("start-ellipsis") val startEllipsis: PaginationItemType
     }
 }
+
+sealed external interface SpeedDialDirection {
+    companion object {
+        @JsValue("down") val down: SpeedDialDirection
+        @JsValue("left") val left: SpeedDialDirection
+        @JsValue("right") val right: SpeedDialDirection
+        @JsValue("up") val up: SpeedDialDirection
+    }
+}
