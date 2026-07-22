@@ -669,3 +669,23 @@ sealed external interface ImageListItemBarPosition {
         @JsValue("top") val top: ImageListItemBarPosition
     }
 }
+
+sealed external interface LinkColor {
+    companion object {
+        @JsValue("inherit") val inherit: LinkColor
+        @JsValue("primary") val primary: LinkColor
+        @JsValue("secondary") val secondary: LinkColor
+        @JsValue("success") val success: LinkColor
+        @JsValue("error") val error: LinkColor
+        @JsValue("info") val info: LinkColor
+        @JsValue("warning") val warning: LinkColor
+    }
+}
+
+sealed external interface LinkUnderline {
+    companion object {
+        @JsValue("always") val always: LinkUnderline
+        @JsValue("hover") val hover: LinkUnderline
+        @JsValue("none") val none: LinkUnderline
+    }
+}
