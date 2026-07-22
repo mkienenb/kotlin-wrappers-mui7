@@ -372,3 +372,24 @@ sealed external interface FormHelperTextVariant {
         @JsValue("standard") val standard: FormHelperTextVariant
     }
 }
+
+sealed external interface IconButtonColor {
+    companion object {
+        @JsValue("inherit") val inherit: IconButtonColor
+        @JsValue("default") val default: IconButtonColor
+        @JsValue("primary") val primary: IconButtonColor
+        @JsValue("secondary") val secondary: IconButtonColor
+        @JsValue("error") val error: IconButtonColor
+        @JsValue("info") val info: IconButtonColor
+        @JsValue("success") val success: IconButtonColor
+        @JsValue("warning") val warning: IconButtonColor
+    }
+}
+
+sealed external interface IconButtonSize {
+    companion object {
+        @JsValue("small") val small: IconButtonSize
+        @JsValue("medium") val medium: IconButtonSize
+        @JsValue("large") val large: IconButtonSize
+    }
+}
