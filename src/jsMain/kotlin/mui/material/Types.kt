@@ -355,3 +355,12 @@ sealed external interface FormControlVariant {
         @JsValue("standard") val standard: FormControlVariant
     }
 }
+
+sealed external interface FormControlLabelPlacement {
+    companion object {
+        @JsValue("bottom") val bottom: FormControlLabelPlacement
+        @JsValue("end") val end: FormControlLabelPlacement
+        @JsValue("start") val start: FormControlLabelPlacement
+        @JsValue("top") val top: FormControlLabelPlacement
+    }
+}
