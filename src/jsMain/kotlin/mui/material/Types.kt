@@ -170,3 +170,13 @@ sealed external interface CircularProgressVariant {
         val indeterminate: CircularProgressVariant
     }
 }
+
+sealed external interface AccordionVariant {
+    companion object {
+        @JsValue("standard")
+        val standard: AccordionVariant
+
+        @JsValue("outlined")
+        val outlined: AccordionVariant
+    }
+}
