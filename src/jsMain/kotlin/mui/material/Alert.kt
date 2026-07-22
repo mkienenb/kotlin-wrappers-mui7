@@ -14,7 +14,7 @@ external interface AlertProps :
     var action: react.ReactNode?
     var color: AlertColor?
     var icon: react.ReactNode?
-    var onClose: ((event: web.uievents.MouseEvent<*, *>) -> Unit)?
+    var onClose: ((event: web.events.Event) -> Unit)?
     var severity: AlertSeverity?
     var slotProps: dynamic
     var slots: dynamic
