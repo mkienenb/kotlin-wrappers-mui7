@@ -977,3 +977,12 @@ sealed external interface GridWrap {
         @JsValue("wrap-reverse") val wrapReverse: GridWrap
     }
 }
+
+sealed external interface StackDirection {
+    companion object {
+        @JsValue("column") val column: StackDirection
+        @JsValue("column-reverse") val columnReverse: StackDirection
+        @JsValue("row") val row: StackDirection
+        @JsValue("row-reverse") val rowReverse: StackDirection
+    }
+}
