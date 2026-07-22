@@ -332,3 +332,26 @@ sealed external interface FabVariant {
         @JsValue("extended") val extended: FabVariant
     }
 }
+
+sealed external interface FormControlMargin {
+    companion object {
+        @JsValue("dense") val dense: FormControlMargin
+        @JsValue("none") val none: FormControlMargin
+        @JsValue("normal") val normal: FormControlMargin
+    }
+}
+
+sealed external interface FormControlSize {
+    companion object {
+        @JsValue("small") val small: FormControlSize
+        @JsValue("medium") val medium: FormControlSize
+    }
+}
+
+sealed external interface FormControlVariant {
+    companion object {
+        @JsValue("filled") val filled: FormControlVariant
+        @JsValue("outlined") val outlined: FormControlVariant
+        @JsValue("standard") val standard: FormControlVariant
+    }
+}
