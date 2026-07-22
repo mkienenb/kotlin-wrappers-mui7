@@ -477,3 +477,22 @@ sealed external interface SliderValueLabelDisplay {
         @JsValue("off") val off: SliderValueLabelDisplay
     }
 }
+
+sealed external interface SwitchColor {
+    companion object {
+        @JsValue("default") val default: SwitchColor
+        @JsValue("primary") val primary: SwitchColor
+        @JsValue("secondary") val secondary: SwitchColor
+        @JsValue("error") val error: SwitchColor
+        @JsValue("info") val info: SwitchColor
+        @JsValue("success") val success: SwitchColor
+        @JsValue("warning") val warning: SwitchColor
+    }
+}
+
+sealed external interface SwitchSize {
+    companion object {
+        @JsValue("small") val small: SwitchSize
+        @JsValue("medium") val medium: SwitchSize
+    }
+}
