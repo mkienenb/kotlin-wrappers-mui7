@@ -570,3 +570,29 @@ sealed external interface AvatarVariant {
         @JsValue("square") val square: AvatarVariant
     }
 }
+
+sealed external interface BadgeColor {
+    companion object {
+        @JsValue("default") val default: BadgeColor
+        @JsValue("primary") val primary: BadgeColor
+        @JsValue("secondary") val secondary: BadgeColor
+        @JsValue("error") val error: BadgeColor
+        @JsValue("info") val info: BadgeColor
+        @JsValue("success") val success: BadgeColor
+        @JsValue("warning") val warning: BadgeColor
+    }
+}
+
+sealed external interface BadgeOverlap {
+    companion object {
+        @JsValue("circular") val circular: BadgeOverlap
+        @JsValue("rectangular") val rectangular: BadgeOverlap
+    }
+}
+
+sealed external interface BadgeVariant {
+    companion object {
+        @JsValue("dot") val dot: BadgeVariant
+        @JsValue("standard") val standard: BadgeVariant
+    }
+}
