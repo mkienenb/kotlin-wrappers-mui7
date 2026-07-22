@@ -562,3 +562,11 @@ sealed external interface ToggleButtonGroupOrientation {
         @JsValue("vertical") val vertical: ToggleButtonGroupOrientation
     }
 }
+
+sealed external interface AvatarVariant {
+    companion object {
+        @JsValue("circular") val circular: AvatarVariant
+        @JsValue("rounded") val rounded: AvatarVariant
+        @JsValue("square") val square: AvatarVariant
+    }
+}
