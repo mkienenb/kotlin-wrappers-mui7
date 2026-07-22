@@ -689,3 +689,10 @@ sealed external interface LinkUnderline {
         @JsValue("none") val none: LinkUnderline
     }
 }
+
+sealed external interface ListItemAlignItems {
+    companion object {
+        @JsValue("center") val center: ListItemAlignItems
+        @JsValue("flex-start") val flexStart: ListItemAlignItems
+    }
+}
