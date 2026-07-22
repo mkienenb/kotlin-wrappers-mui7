@@ -645,3 +645,12 @@ sealed external interface IconFontSize {
         @JsValue("small") val small: IconFontSize
     }
 }
+
+sealed external interface ImageListVariant {
+    companion object {
+        @JsValue("masonry") val masonry: ImageListVariant
+        @JsValue("quilted") val quilted: ImageListVariant
+        @JsValue("standard") val standard: ImageListVariant
+        @JsValue("woven") val woven: ImageListVariant
+    }
+}
