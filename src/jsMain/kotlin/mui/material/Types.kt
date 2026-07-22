@@ -704,3 +704,18 @@ sealed external interface ListSubheaderColor {
         @JsValue("primary") val primary: ListSubheaderColor
     }
 }
+
+sealed external interface TablePadding {
+    companion object {
+        @JsValue("checkbox") val checkbox: TablePadding
+        @JsValue("none") val none: TablePadding
+        @JsValue("normal") val normal: TablePadding
+    }
+}
+
+sealed external interface TableSize {
+    companion object {
+        @JsValue("medium") val medium: TableSize
+        @JsValue("small") val small: TableSize
+    }
+}
