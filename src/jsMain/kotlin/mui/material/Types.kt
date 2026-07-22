@@ -783,3 +783,20 @@ sealed external interface TooltipPlacement {
         @JsValue("top-start") val topStart: TooltipPlacement
     }
 }
+
+sealed external interface DialogMaxWidth {
+    companion object {
+        @JsValue("xs") val xs: DialogMaxWidth
+        @JsValue("sm") val sm: DialogMaxWidth
+        @JsValue("md") val md: DialogMaxWidth
+        @JsValue("lg") val lg: DialogMaxWidth
+        @JsValue("xl") val xl: DialogMaxWidth
+    }
+}
+
+sealed external interface DialogScroll {
+    companion object {
+        @JsValue("body") val body: DialogScroll
+        @JsValue("paper") val paper: DialogScroll
+    }
+}
