@@ -904,3 +904,10 @@ sealed external interface SpeedDialDirection {
         @JsValue("up") val up: SpeedDialDirection
     }
 }
+
+sealed external interface StepperOrientation {
+    companion object {
+        @JsValue("horizontal") val horizontal: StepperOrientation
+        @JsValue("vertical") val vertical: StepperOrientation
+    }
+}
