@@ -496,3 +496,30 @@ sealed external interface SwitchSize {
         @JsValue("medium") val medium: SwitchSize
     }
 }
+
+sealed external interface TextFieldColor {
+    companion object {
+        @JsValue("primary") val primary: TextFieldColor
+        @JsValue("secondary") val secondary: TextFieldColor
+        @JsValue("error") val error: TextFieldColor
+        @JsValue("info") val info: TextFieldColor
+        @JsValue("success") val success: TextFieldColor
+        @JsValue("warning") val warning: TextFieldColor
+    }
+}
+
+sealed external interface TextFieldMargin {
+    companion object {
+        @JsValue("dense") val dense: TextFieldMargin
+        @JsValue("none") val none: TextFieldMargin
+        @JsValue("normal") val normal: TextFieldMargin
+    }
+}
+
+sealed external interface TextFieldVariant {
+    companion object {
+        @JsValue("filled") val filled: TextFieldVariant
+        @JsValue("outlined") val outlined: TextFieldVariant
+        @JsValue("standard") val standard: TextFieldVariant
+    }
+}
