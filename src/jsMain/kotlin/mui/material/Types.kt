@@ -248,3 +248,39 @@ sealed external interface AlertColor {
         val success: AlertColor
     }
 }
+
+
+sealed external interface ButtonGroupColor {
+    companion object {
+        @JsValue("inherit") val inherit: ButtonGroupColor
+        @JsValue("primary") val primary: ButtonGroupColor
+        @JsValue("secondary") val secondary: ButtonGroupColor
+        @JsValue("success") val success: ButtonGroupColor
+        @JsValue("error") val error: ButtonGroupColor
+        @JsValue("info") val info: ButtonGroupColor
+        @JsValue("warning") val warning: ButtonGroupColor
+    }
+}
+
+sealed external interface ButtonGroupOrientation {
+    companion object {
+        @JsValue("horizontal") val horizontal: ButtonGroupOrientation
+        @JsValue("vertical") val vertical: ButtonGroupOrientation
+    }
+}
+
+sealed external interface ButtonGroupSize {
+    companion object {
+        @JsValue("small") val small: ButtonGroupSize
+        @JsValue("medium") val medium: ButtonGroupSize
+        @JsValue("large") val large: ButtonGroupSize
+    }
+}
+
+sealed external interface ButtonGroupVariant {
+    companion object {
+        @JsValue("text") val text: ButtonGroupVariant
+        @JsValue("outlined") val outlined: ButtonGroupVariant
+        @JsValue("contained") val contained: ButtonGroupVariant
+    }
+}
