@@ -986,3 +986,20 @@ sealed external interface StackDirection {
         @JsValue("row-reverse") val rowReverse: StackDirection
     }
 }
+
+sealed external interface ClickAwayMouseEvent {
+    companion object {
+        @JsValue("onClick") val onClick: ClickAwayMouseEvent
+        @JsValue("onMouseDown") val onMouseDown: ClickAwayMouseEvent
+        @JsValue("onMouseUp") val onMouseUp: ClickAwayMouseEvent
+        @JsValue("onPointerDown") val onPointerDown: ClickAwayMouseEvent
+        @JsValue("onPointerUp") val onPointerUp: ClickAwayMouseEvent
+    }
+}
+
+sealed external interface ClickAwayTouchEvent {
+    companion object {
+        @JsValue("onTouchEnd") val onTouchEnd: ClickAwayTouchEvent
+        @JsValue("onTouchStart") val onTouchStart: ClickAwayTouchEvent
+    }
+}
