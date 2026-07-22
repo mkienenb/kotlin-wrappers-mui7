@@ -622,3 +622,26 @@ sealed external interface ChipVariant {
         @JsValue("outlined") val outlined: ChipVariant
     }
 }
+
+sealed external interface IconColor {
+    companion object {
+        @JsValue("inherit") val inherit: IconColor
+        @JsValue("action") val action: IconColor
+        @JsValue("disabled") val disabled: IconColor
+        @JsValue("error") val error: IconColor
+        @JsValue("info") val info: IconColor
+        @JsValue("primary") val primary: IconColor
+        @JsValue("secondary") val secondary: IconColor
+        @JsValue("success") val success: IconColor
+        @JsValue("warning") val warning: IconColor
+    }
+}
+
+sealed external interface IconFontSize {
+    companion object {
+        @JsValue("inherit") val inherit: IconFontSize
+        @JsValue("large") val large: IconFontSize
+        @JsValue("medium") val medium: IconFontSize
+        @JsValue("small") val small: IconFontSize
+    }
+}
