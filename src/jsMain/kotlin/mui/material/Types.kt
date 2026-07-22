@@ -1003,3 +1003,10 @@ sealed external interface ClickAwayTouchEvent {
         @JsValue("onTouchStart") val onTouchStart: ClickAwayTouchEvent
     }
 }
+
+sealed external interface ModalCloseReason {
+    companion object {
+        @JsValue("backdropClick") val backdropClick: ModalCloseReason
+        @JsValue("escapeKeyDown") val escapeKeyDown: ModalCloseReason
+    }
+}
