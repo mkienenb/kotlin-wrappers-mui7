@@ -830,3 +830,10 @@ sealed external interface SkeletonVariant {
         @JsValue("text") val text: SkeletonVariant
     }
 }
+
+sealed external interface PaperVariant {
+    companion object {
+        @JsValue("elevation") val elevation: PaperVariant
+        @JsValue("outlined") val outlined: PaperVariant
+    }
+}
