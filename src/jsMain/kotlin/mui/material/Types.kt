@@ -596,3 +596,29 @@ sealed external interface BadgeVariant {
         @JsValue("standard") val standard: BadgeVariant
     }
 }
+
+sealed external interface ChipColor {
+    companion object {
+        @JsValue("default") val default: ChipColor
+        @JsValue("primary") val primary: ChipColor
+        @JsValue("secondary") val secondary: ChipColor
+        @JsValue("error") val error: ChipColor
+        @JsValue("info") val info: ChipColor
+        @JsValue("success") val success: ChipColor
+        @JsValue("warning") val warning: ChipColor
+    }
+}
+
+sealed external interface ChipSize {
+    companion object {
+        @JsValue("small") val small: ChipSize
+        @JsValue("medium") val medium: ChipSize
+    }
+}
+
+sealed external interface ChipVariant {
+    companion object {
+        @JsValue("filled") val filled: ChipVariant
+        @JsValue("outlined") val outlined: ChipVariant
+    }
+}
