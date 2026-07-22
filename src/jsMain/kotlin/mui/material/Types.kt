@@ -444,3 +444,36 @@ sealed external interface SelectVariant {
         @JsValue("standard") val standard: SelectVariant
     }
 }
+
+sealed external interface SliderColor {
+    companion object {
+        @JsValue("primary") val primary: SliderColor
+        @JsValue("secondary") val secondary: SliderColor
+        @JsValue("error") val error: SliderColor
+        @JsValue("info") val info: SliderColor
+        @JsValue("success") val success: SliderColor
+        @JsValue("warning") val warning: SliderColor
+    }
+}
+
+sealed external interface SliderSize {
+    companion object {
+        @JsValue("small") val small: SliderSize
+        @JsValue("medium") val medium: SliderSize
+    }
+}
+
+sealed external interface SliderTrack {
+    companion object {
+        @JsValue("normal") val normal: SliderTrack
+        @JsValue("inverted") val inverted: SliderTrack
+    }
+}
+
+sealed external interface SliderValueLabelDisplay {
+    companion object {
+        @JsValue("auto") val auto: SliderValueLabelDisplay
+        @JsValue("on") val on: SliderValueLabelDisplay
+        @JsValue("off") val off: SliderValueLabelDisplay
+    }
+}
