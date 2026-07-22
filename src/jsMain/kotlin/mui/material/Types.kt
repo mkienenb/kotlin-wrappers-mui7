@@ -950,3 +950,13 @@ sealed external interface TabsVariant {
         @JsValue("standard") val standard: TabsVariant
     }
 }
+
+sealed external interface ContainerMaxWidth {
+    companion object {
+        @JsValue("xs") val xs: ContainerMaxWidth
+        @JsValue("sm") val sm: ContainerMaxWidth
+        @JsValue("md") val md: ContainerMaxWidth
+        @JsValue("lg") val lg: ContainerMaxWidth
+        @JsValue("xl") val xl: ContainerMaxWidth
+    }
+}
