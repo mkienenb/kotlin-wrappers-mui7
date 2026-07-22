@@ -928,3 +928,25 @@ sealed external interface TabTextColor {
         @JsValue("secondary") val secondary: TabTextColor
     }
 }
+
+sealed external interface TabsIndicatorColor {
+    companion object {
+        @JsValue("primary") val primary: TabsIndicatorColor
+        @JsValue("secondary") val secondary: TabsIndicatorColor
+    }
+}
+
+sealed external interface TabsOrientation {
+    companion object {
+        @JsValue("horizontal") val horizontal: TabsOrientation
+        @JsValue("vertical") val vertical: TabsOrientation
+    }
+}
+
+sealed external interface TabsVariant {
+    companion object {
+        @JsValue("fullWidth") val fullWidth: TabsVariant
+        @JsValue("scrollable") val scrollable: TabsVariant
+        @JsValue("standard") val standard: TabsVariant
+    }
+}
