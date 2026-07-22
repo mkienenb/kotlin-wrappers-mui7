@@ -1018,3 +1018,23 @@ sealed external interface PopoverAnchorReference {
         @JsValue("none") val none: PopoverAnchorReference
     }
 }
+
+sealed external interface PopperPlacement {
+    companion object {
+        @JsValue("auto") val auto: PopperPlacement
+        @JsValue("auto-end") val autoEnd: PopperPlacement
+        @JsValue("auto-start") val autoStart: PopperPlacement
+        @JsValue("bottom") val bottom: PopperPlacement
+        @JsValue("bottom-end") val bottomEnd: PopperPlacement
+        @JsValue("bottom-start") val bottomStart: PopperPlacement
+        @JsValue("left") val left: PopperPlacement
+        @JsValue("left-end") val leftEnd: PopperPlacement
+        @JsValue("left-start") val leftStart: PopperPlacement
+        @JsValue("right") val right: PopperPlacement
+        @JsValue("right-end") val rightEnd: PopperPlacement
+        @JsValue("right-start") val rightStart: PopperPlacement
+        @JsValue("top") val top: PopperPlacement
+        @JsValue("top-end") val topEnd: PopperPlacement
+        @JsValue("top-start") val topStart: PopperPlacement
+    }
+}
