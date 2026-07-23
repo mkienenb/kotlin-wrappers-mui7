@@ -15,8 +15,9 @@ val mavenCentralUsernameEnv = "MAVEN_CENTRAL_USERNAME"
 val mavenCentralPasswordEnv = "MAVEN_CENTRAL_PASSWORD"
 val mavenCentralSigningKeyEnv = "MAVEN_CENTRAL_SIGNING_KEY"
 val mavenCentralSigningPasswordEnv = "MAVEN_CENTRAL_SIGNING_PASSWORD"
+val mavenCentralPublishingTypeEnv = "MAVEN_CENTRAL_PUBLISHING_TYPE"
 val centralPortalSnapshotsUrl = "https://central.sonatype.com/repository/maven-snapshots/"
-val centralPortalPublishingType = "USER_MANAGED"
+val centralPortalPublishingType = System.getenv(mavenCentralPublishingTypeEnv) ?: "USER_MANAGED"
 
 val commonFreeCompilerArgs = listOf(
     "-Xexpect-actual-classes",

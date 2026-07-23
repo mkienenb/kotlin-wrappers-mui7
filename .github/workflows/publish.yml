@@ -1,0 +1,100 @@
+name: Publish to Maven Central
+
+# Publishes the root project to the Sonatype Central Portal.
+#
+# Required repository secrets (Settings -> Secrets and variables -> Actions):
+#   MAVEN_CENTRAL_USERNAME         Central Portal user token username
+#   MAVEN_CENTRAL_PASSWORD         Central Portal user token password
+#   MAVEN_CENTRAL_SIGNING_KEY      Armored GPG secret key, including BEGIN/END lines
+#   MAVEN_CENTRAL_SIGNING_PASSWORD GPG key passphrase
+#
+# Generate the token at central.sonatype.com -> Account -> Generate User Token.
+# Export the signing key with: gpg --export-secret-keys --armor KEY_ID
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+    inputs:
+      publishing_type:
+        description: "AUTOMATIC releases to Maven Central as soon as validation passes; USER_MANAGED leaves the deployment awaiting a Publish click."
+        type: choice
+        default: AUTOMATIC
+        options:
+          - AUTOMATIC
+          - USER_MANAGED
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publish-maven-central
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    # Add required reviewers to this environment to gate releases on an approval
+    # that anyone with repository access can give.
+    environment: maven-central
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      - uses: gradle/actions/setup-gradle@v4
+
+      - name: Verify tag matches the project version
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: |
+          project_version="$(./gradlew -q properties | awk '/^version: /{print $2}')"
+          tag_version="${GITHUB_REF_NAME#v}"
+          echo "project version: $project_version"
+          echo "tag version:     $tag_version"
+          if [ "$project_version" != "$tag_version" ]; then
+            echo "::error::Tag $GITHUB_REF_NAME does not match build.gradle.kts version $project_version"
+            exit 1
+          fi
+
+      - name: Build artifacts
+        run: ./gradlew assemble
+
+      - name: Pre-flight checks
+        env:
+          MAVEN_CENTRAL_SIGNING_KEY: ${{ secrets.MAVEN_CENTRAL_SIGNING_KEY }}
+          MAVEN_CENTRAL_SIGNING_PASSWORD: ${{ secrets.MAVEN_CENTRAL_SIGNING_PASSWORD }}
+        run: |
+          ./gradlew checkSigningConfiguration \
+                    checkPomFileForJsPublication \
+                    checkPomFileForKotlinMultiplatformPublication \
+                    nmcpCheckAllPublicationsFiles
+
+      - name: Publish to Central Portal
+        env:
+          MAVEN_CENTRAL_USERNAME: ${{ secrets.MAVEN_CENTRAL_USERNAME }}
+          MAVEN_CENTRAL_PASSWORD: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
+          MAVEN_CENTRAL_SIGNING_KEY: ${{ secrets.MAVEN_CENTRAL_SIGNING_KEY }}
+          MAVEN_CENTRAL_SIGNING_PASSWORD: ${{ secrets.MAVEN_CENTRAL_SIGNING_PASSWORD }}
+          MAVEN_CENTRAL_PUBLISHING_TYPE: ${{ inputs.publishing_type || 'AUTOMATIC' }}
+        run: ./gradlew publishAllPublicationsToCentralPortal
+
+      - name: Summary
+        env:
+          PUBLISHING_TYPE: ${{ inputs.publishing_type || 'AUTOMATIC' }}
+        run: |
+          {
+            echo "### Deployment uploaded"
+            echo ""
+            echo "Publishing type: \`$PUBLISHING_TYPE\`"
+            echo ""
+            if [ "$PUBLISHING_TYPE" = "USER_MANAGED" ]; then
+              echo "The deployment is validated and waiting. Release it at"
+              echo "<https://central.sonatype.com/publishing/deployments>."
+            else
+              echo "The deployment releases to Maven Central automatically once validation passes."
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
