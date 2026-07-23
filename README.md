@@ -7,7 +7,7 @@ Standalone Kotlin/JS wrappers for the scoped MUI 7 surface implemented in this d
 - Group: `io.github.mkienenb.kotlin-wrappers.experimental`
 - Artifact: `mui-7`
 - JS artifact: `mui-7-js`
-- Version: `7.3.10-pre.3`
+- Version: `7.3.10-pre.5`
 
 The wrapper exposes these Kotlin packages:
 
@@ -67,7 +67,7 @@ Then depend on the wrapper and keep the shared support wrappers explicit in the 
 
 ```kotlin
 dependencies {
-    jsMainImplementation("org.jetbrains.kotlin-wrappers.experimental:mui-7:7.3.10-pre.3")
+    jsMainImplementation("org.jetbrains.kotlin-wrappers.experimental:mui-7:7.3.10-pre.5")
 
     jsMainImplementation(kotlinWrappers.js)
     jsMainImplementation(kotlinWrappers.react)
@@ -85,7 +85,7 @@ For a version catalog, the equivalent entry is:
 
 ```toml
 [libraries]
-mui7 = { module = "org.jetbrains.kotlin-wrappers.experimental:mui-7", version = "7.3.10-pre.3" }
+mui7 = { module = "org.jetbrains.kotlin-wrappers.experimental:mui-7", version = "7.3.10-pre.5" }
 ```
 
 ```kotlin
@@ -93,6 +93,39 @@ dependencies {
     jsMainImplementation(libs.mui7)
 }
 ```
+
+## Wrapped components
+
+All ~121 `@mui/material` components are wrapped. Components are organized below by their MUI category.
+
+### Inputs
+`Autocomplete` · `Button` · `ButtonGroup` · `Checkbox` · `Fab` · `FormControl` · `FormControlLabel` · `FormGroup` · `FormHelperText` · `FormLabel` · `IconButton` · `NativeSelect` · `Radio` · `RadioGroup` · `Rating` · `Select` · `Slider` · `Switch` · `TextareaAutosize` · `TextField` · `ToggleButton` · `ToggleButtonGroup`
+
+### Input internals
+`FilledInput` · `Input` · `InputAdornment` · `InputBase` · `OutlinedInput`
+
+### Data display
+`Avatar` · `AvatarGroup` · `Badge` · `Chip` · `Divider` · `Icon` · `ImageList` · `ImageListItem` · `ImageListItemBar` · `Link` · `List` · `ListItem` · `ListItemAvatar` · `ListItemButton` · `ListItemIcon` · `ListItemSecondaryAction` · `ListItemText` · `ListSubheader` · `SvgIcon` · `Table` · `TableBody` · `TableCell` · `TableContainer` · `TableFooter` · `TableHead` · `TablePagination` · `TableRow` · `TableSortLabel` · `Tooltip` · `Typography`
+
+### Feedback
+`Alert` · `AlertTitle` · `CircularProgress` · `Dialog` · `DialogActions` · `DialogContent` · `DialogContentText` · `DialogTitle` · `LinearProgress` · `Skeleton` · `Snackbar` · `SnackbarContent`
+
+### Navigation
+`BottomNavigation` · `BottomNavigationAction` · `Breadcrumbs` · `Drawer` · `Menu` · `MenuItem` · `MenuList` · `Pagination` · `PaginationItem` · `SpeedDial` · `SpeedDialAction` · `SpeedDialIcon` · `Step` · `StepButton` · `StepConnector` · `StepContent` · `StepIcon` · `StepLabel` · `Stepper` · `SwipeableDrawer` · `Tab` · `Tabs` · `Toolbar`
+
+### Surfaces
+`Accordion` · `AccordionActions` · `AccordionDetails` · `AccordionSummary` · `AppBar` · `Card` · `CardActionArea` · `CardActions` · `CardContent` · `CardHeader` · `CardMedia` · `Paper`
+
+### Layout
+`Box` · `Container` · `Grid` · `Grid2` · `ImageList` · `Stack`
+
+### Utils
+`Backdrop` · `ClickAwayListener` · `Collapse` · `CssBaseline` · `Fade` · `Grow` · `Modal` · `Popover` · `Popper` · `Portal` · `Slide` · `Zoom`
+
+### Icons
+The `mui.icons.material` package exposes all Material Icons as `react.FC` components via `@mui/icons-material`.
+
+---
 
 ## Usage
 
