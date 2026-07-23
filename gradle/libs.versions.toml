@@ -1,8 +1,8 @@
 [versions]
-kotlin = "2.3.21"
+kotlin = "2.4.10"
 dokka = "2.2.0"
-seskar = "4.42.0"
-nmcp = "1.4.4"
+seskar = "4.60.0"
+nmcp = "1.6.1"
 emotion-react = "^11.14.0"
 emotion-styled = "^11.14.1"
 mui = "7.3.10"
