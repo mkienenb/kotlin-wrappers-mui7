@@ -5,11 +5,18 @@ name: Publish to Maven Central
 # Required repository secrets (Settings -> Secrets and variables -> Actions):
 #   MAVEN_CENTRAL_USERNAME         Central Portal user token username
 #   MAVEN_CENTRAL_PASSWORD         Central Portal user token password
-#   MAVEN_CENTRAL_SIGNING_KEY      Armored GPG secret key, including BEGIN/END lines
+#   MAVEN_CENTRAL_SIGNING_KEY_B64  Armored GPG secret key, base64-encoded
 #   MAVEN_CENTRAL_SIGNING_PASSWORD GPG key passphrase
 #
 # Generate the token at central.sonatype.com -> Account -> Generate User Token.
-# Export the signing key with: gpg --export-secret-keys --armor KEY_ID
+#
+# The signing key is stored base64-encoded because PGP armor is line-oriented:
+# any unquoted shell expansion or copy-paste that reflows it collapses the
+# newlines, and Gradle then fails with "Could not read PGP secret key". Set it
+# with (note the quotes around the variable -- they matter):
+#
+#   gh secret set MAVEN_CENTRAL_SIGNING_KEY_B64 \
+#     --body "$(gpg --export-secret-keys --armor KEY_ID | base64 -w0)"
 
 on:
   push:
@@ -65,9 +72,15 @@ jobs:
 
       - name: Pre-flight checks
         env:
-          MAVEN_CENTRAL_SIGNING_KEY: ${{ secrets.MAVEN_CENTRAL_SIGNING_KEY }}
+          SIGNING_KEY_B64: ${{ secrets.MAVEN_CENTRAL_SIGNING_KEY_B64 }}
           MAVEN_CENTRAL_SIGNING_PASSWORD: ${{ secrets.MAVEN_CENTRAL_SIGNING_PASSWORD }}
         run: |
+          MAVEN_CENTRAL_SIGNING_KEY="$(printf '%s' "$SIGNING_KEY_B64" | base64 -d)"
+          export MAVEN_CENTRAL_SIGNING_KEY
+          case "$MAVEN_CENTRAL_SIGNING_KEY" in
+            *"BEGIN PGP PRIVATE KEY BLOCK"*) ;;
+            *) echo "::error::Decoded signing key is not an armored PGP private key block"; exit 1 ;;
+          esac
           ./gradlew checkSigningConfiguration \
                     checkPomFileForJsPublication \
                     checkPomFileForKotlinMultiplatformPublication \
@@ -77,10 +90,13 @@ jobs:
         env:
           MAVEN_CENTRAL_USERNAME: ${{ secrets.MAVEN_CENTRAL_USERNAME }}
           MAVEN_CENTRAL_PASSWORD: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
-          MAVEN_CENTRAL_SIGNING_KEY: ${{ secrets.MAVEN_CENTRAL_SIGNING_KEY }}
+          SIGNING_KEY_B64: ${{ secrets.MAVEN_CENTRAL_SIGNING_KEY_B64 }}
           MAVEN_CENTRAL_SIGNING_PASSWORD: ${{ secrets.MAVEN_CENTRAL_SIGNING_PASSWORD }}
           MAVEN_CENTRAL_PUBLISHING_TYPE: ${{ inputs.publishing_type || 'AUTOMATIC' }}
-        run: ./gradlew publishAllPublicationsToCentralPortal
+        run: |
+          MAVEN_CENTRAL_SIGNING_KEY="$(printf '%s' "$SIGNING_KEY_B64" | base64 -d)"
+          export MAVEN_CENTRAL_SIGNING_KEY
+          ./gradlew publishAllPublicationsToCentralPortal
 
       - name: Summary
         env:
