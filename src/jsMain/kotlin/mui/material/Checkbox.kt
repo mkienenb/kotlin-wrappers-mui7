@@ -9,18 +9,21 @@ external interface CheckboxProps :
     react.dom.html.InputHTMLAttributes<web.html.HTMLInputElement>,
     PropsWithComponent,
     PropsWithSx {
-    var checked: Boolean?
+    override var checked: Boolean?
     var checkedIcon: react.ReactNode?
     var color: CheckboxColor?
-    var defaultChecked: Boolean?
+    override var defaultChecked: Boolean?
     var disableRipple: Boolean?
     var icon: react.ReactNode?
     var indeterminate: Boolean?
     var indeterminateIcon: react.ReactNode?
     var inputProps: dynamic
     var inputRef: dynamic
-    var onChange: ((event: web.events.Event, checked: Boolean) -> Unit)?
-    var size: CheckboxSize?
+    @Suppress("VAR_TYPE_MISMATCH_ON_OVERRIDE")
+    override var onChange: ((event: web.events.Event, checked: Boolean) -> Unit)?
+
+    @Suppress("VAR_TYPE_MISMATCH_ON_OVERRIDE")
+    override var size: CheckboxSize?
 }
 
 @JsName("default")

@@ -12,7 +12,8 @@ external interface SpeedDialActionProps :
     var delay: Number?
     var FabProps: dynamic
     var icon: react.ReactNode?
-    var id: String?
+    @Suppress("VAR_TYPE_MISMATCH_ON_OVERRIDE")
+    override var id: String?
     var open: Boolean?
     var slotProps: dynamic
     var slots: dynamic

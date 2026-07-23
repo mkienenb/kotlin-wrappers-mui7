@@ -11,7 +11,7 @@ external interface MenuItemProps :
     PropsWithComponent,
     PropsWithSx {
     override var children: react.ReactNode?
-    var autoFocus: Boolean?
+    override var autoFocus: Boolean?
     var dense: Boolean?
     var disabled: Boolean?
     var disableGutters: Boolean?

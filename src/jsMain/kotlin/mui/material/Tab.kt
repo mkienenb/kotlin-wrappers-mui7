@@ -11,14 +11,14 @@ external interface TabProps :
     PropsWithComponent,
     PropsWithSx {
     override var children: react.ReactNode?
-    var disabled: Boolean?
+    override var disabled: Boolean?
     var disableFocusRipple: Boolean?
     var disableRipple: Boolean?
     var href: String?
     var icon: dynamic
     var iconPosition: TabIconPosition?
     var label: react.ReactNode?
-    var value: dynamic
+    override var value: dynamic
     var wrapped: Boolean?
 }
 

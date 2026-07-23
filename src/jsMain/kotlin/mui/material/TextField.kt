@@ -12,15 +12,16 @@ external interface TextFieldProps :
     PropsWithSx {
     override var children: react.ReactNode?
     var autoComplete: String?
-    var autoFocus: Boolean?
+    override var autoFocus: Boolean?
     var color: TextFieldColor?
-    var defaultValue: dynamic
+    override var defaultValue: dynamic
     var disabled: Boolean?
     var error: Boolean?
     var FormHelperTextProps: dynamic
     var fullWidth: Boolean?
     var helperText: react.ReactNode?
-    var id: String?
+    @Suppress("VAR_TYPE_MISMATCH_ON_OVERRIDE")
+    override var id: String?
     var InputLabelProps: dynamic
     var inputProps: dynamic
     var InputProps: dynamic

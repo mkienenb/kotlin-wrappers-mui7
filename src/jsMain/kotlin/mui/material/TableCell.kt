@@ -11,7 +11,8 @@ external interface TableCellProps :
     PropsWithComponent,
     PropsWithSx {
     override var children: react.ReactNode?
-    var align: TableCellAlign?
+    @Suppress("VAR_TYPE_MISMATCH_ON_OVERRIDE")
+    override var align: TableCellAlign?
     var padding: TableCellPadding?
     var size: TableCellSize?
     var sortDirection: TableCellSortDirection?

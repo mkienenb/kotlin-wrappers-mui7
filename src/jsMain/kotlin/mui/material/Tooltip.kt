@@ -21,7 +21,8 @@ external interface TooltipProps :
     var enterNextDelay: Number?
     var enterTouchDelay: Number?
     var followCursor: Boolean?
-    var id: String?
+    @Suppress("VAR_TYPE_MISMATCH_ON_OVERRIDE")
+    override var id: String?
     var keepMounted: Boolean?
     var leaveDelay: Number?
     var leaveTouchDelay: Number?
@@ -33,7 +34,8 @@ external interface TooltipProps :
     var PopperProps: dynamic
     var slotProps: dynamic
     var slots: dynamic
-    var title: react.ReactNode?
+    @Suppress("VAR_TYPE_MISMATCH_ON_OVERRIDE")
+    override var title: react.ReactNode?
     var TransitionComponent: dynamic
     var transitionDuration: dynamic
     var TransitionProps: dynamic

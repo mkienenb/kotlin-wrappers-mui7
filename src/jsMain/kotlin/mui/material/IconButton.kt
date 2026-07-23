@@ -12,7 +12,7 @@ external interface IconButtonProps :
     PropsWithSx {
     override var children: react.ReactNode?
     var color: IconButtonColor?
-    var disabled: Boolean?
+    override var disabled: Boolean?
     var disableFocusRipple: Boolean?
     var disableRipple: Boolean?
     var edge: dynamic

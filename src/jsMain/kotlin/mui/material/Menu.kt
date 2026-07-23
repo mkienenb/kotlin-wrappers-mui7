@@ -12,7 +12,7 @@ external interface MenuProps :
     PropsWithSx {
     override var children: react.ReactNode?
     var anchorEl: dynamic
-    var autoFocus: Boolean?
+    override var autoFocus: Boolean?
     var disableAutoFocusItem: Boolean?
     var MenuListProps: dynamic
     var onClose: ((event: web.events.Event) -> Unit)?

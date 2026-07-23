@@ -11,10 +11,11 @@ external interface SpeedDialProps :
     PropsWithComponent,
     PropsWithSx {
     override var children: react.ReactNode?
-    var ariaLabel: String?
+    override var ariaLabel: String?
     var direction: SpeedDialDirection?
     var FabProps: dynamic
-    var hidden: Boolean?
+    @Suppress("VAR_TYPE_MISMATCH_ON_OVERRIDE")
+    override var hidden: Boolean?
     var icon: react.ReactNode?
     var onClose: ((event: web.events.Event, reason: String) -> Unit)?
     var onOpen: ((event: web.events.Event, reason: String) -> Unit)?

@@ -9,7 +9,7 @@ external interface RadioGroupProps :
     react.dom.html.HTMLAttributes<web.html.HTMLDivElement>,
     PropsWithSx {
     override var children: react.ReactNode?
-    var defaultValue: dynamic
+    override var defaultValue: dynamic
     var name: String?
     var onChange: ((event: web.events.Event, value: String) -> Unit)?
     var row: Boolean?

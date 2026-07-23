@@ -12,7 +12,7 @@ external interface FabProps :
     PropsWithSx {
     override var children: react.ReactNode?
     var color: FabColor?
-    var disabled: Boolean?
+    override var disabled: Boolean?
     var disableFocusRipple: Boolean?
     var disableRipple: Boolean?
     var href: String?
