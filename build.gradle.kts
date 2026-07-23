@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "io.github.mkienenb.kotlin-wrappers.experimental"
-version = "7.3.10-pre.4"
+version = "7.3.10-pre.5"
 
 val projectRepositoryUrl = "https://github.com/mkienenb/kotlin-wrapper-mui7"
 val mavenCentralUsernameEnv = "MAVEN_CENTRAL_USERNAME"

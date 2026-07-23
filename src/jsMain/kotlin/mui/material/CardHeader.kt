@@ -16,7 +16,8 @@ external interface CardHeaderProps :
     var disableTypography: Boolean?
     var subheader: react.ReactNode?
     var subheaderTypographyProps: dynamic
-    var title: react.ReactNode?
+    @Suppress("VAR_TYPE_MISMATCH_ON_OVERRIDE")
+    override var title: react.ReactNode?
     var titleTypographyProps: dynamic
 }
 

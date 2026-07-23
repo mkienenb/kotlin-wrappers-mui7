@@ -12,15 +12,16 @@ external interface ToggleButtonProps :
     PropsWithSx {
     override var children: react.ReactNode?
     var color: ToggleButtonColor?
-    var disabled: Boolean?
+    override var disabled: Boolean?
     var disableFocusRipple: Boolean?
     var disableRipple: Boolean?
     var fullWidth: Boolean?
     var onChange: ((event: web.events.Event, value: dynamic) -> Unit)?
-    var onClick: ((event: web.events.Event, value: dynamic) -> Unit)?
+    @Suppress("VAR_TYPE_MISMATCH_ON_OVERRIDE")
+    override var onClick: ((event: web.events.Event, value: dynamic) -> Unit)?
     var selected: Boolean?
     var size: ToggleButtonSize?
-    var value: dynamic
+    override var value: dynamic
 }
 
 @JsName("default")

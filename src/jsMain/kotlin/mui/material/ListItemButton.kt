@@ -12,7 +12,7 @@ external interface ListItemButtonProps :
     PropsWithSx {
     override var children: react.ReactNode?
     var alignItems: ListItemAlignItems?
-    var autoFocus: Boolean?
+    override var autoFocus: Boolean?
     var dense: Boolean?
     var disabled: Boolean?
     var disableGutters: Boolean?

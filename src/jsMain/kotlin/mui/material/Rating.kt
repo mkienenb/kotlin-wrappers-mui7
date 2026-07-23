@@ -9,7 +9,8 @@ external interface RatingProps :
     react.dom.html.HTMLAttributes<web.html.HTMLSpanElement>,
     PropsWithComponent,
     PropsWithSx {
-    var defaultValue: Number?
+    @Suppress("VAR_TYPE_MISMATCH_ON_OVERRIDE")
+    override var defaultValue: Number?
     var disabled: Boolean?
     var emptyIcon: react.ReactNode?
     var emptyLabelText: react.ReactNode?

@@ -19,7 +19,7 @@ external interface AutocompleteProps :
     var clearOnEscape: Boolean?
     var clearText: String?
     var closeText: String?
-    var defaultValue: dynamic
+    override var defaultValue: dynamic
     var disableClearable: Boolean?
     var disableCloseOnSelect: Boolean?
     var disabled: Boolean?
@@ -36,7 +36,8 @@ external interface AutocompleteProps :
     var getOptionLabel: dynamic
     var groupBy: dynamic
     var handleHomeEndKeys: Boolean?
-    var id: String?
+    @Suppress("VAR_TYPE_MISMATCH_ON_OVERRIDE")
+    override var id: String?
     var includeInputInList: Boolean?
     var inputValue: String?
     var isOptionEqualToValue: dynamic

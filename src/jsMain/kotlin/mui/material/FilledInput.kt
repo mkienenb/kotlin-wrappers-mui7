@@ -12,16 +12,17 @@ external interface FilledInputProps :
     PropsWithSx {
     override var children: react.ReactNode?
     var autoComplete: String?
-    var autoFocus: Boolean?
+    override var autoFocus: Boolean?
     var color: dynamic
-    var defaultValue: dynamic
+    override var defaultValue: dynamic
     var disabled: Boolean?
     var disableUnderline: Boolean?
     var endAdornment: react.ReactNode?
     var error: Boolean?
     var fullWidth: Boolean?
     var hiddenLabel: Boolean?
-    var id: String?
+    @Suppress("VAR_TYPE_MISMATCH_ON_OVERRIDE")
+    override var id: String?
     var inputComponent: dynamic
     var inputProps: dynamic
     var inputRef: dynamic

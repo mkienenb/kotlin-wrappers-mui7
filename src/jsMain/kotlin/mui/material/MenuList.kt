@@ -11,7 +11,7 @@ external interface MenuListProps :
     PropsWithComponent,
     PropsWithSx {
     override var children: react.ReactNode?
-    var autoFocus: Boolean?
+    override var autoFocus: Boolean?
     var autoFocusItem: Boolean?
     var disabledItemsFocusable: Boolean?
     var disableListWrap: Boolean?

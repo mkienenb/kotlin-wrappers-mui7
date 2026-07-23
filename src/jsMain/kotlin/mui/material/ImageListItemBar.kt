@@ -13,7 +13,8 @@ external interface ImageListItemBarProps :
     var actionPosition: ImageListItemBarActionPosition?
     var position: ImageListItemBarPosition?
     var subtitle: react.ReactNode?
-    var title: react.ReactNode?
+    @Suppress("VAR_TYPE_MISMATCH_ON_OVERRIDE")
+    override var title: react.ReactNode?
 }
 
 @JsName("default")

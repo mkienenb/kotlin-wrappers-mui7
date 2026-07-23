@@ -14,7 +14,7 @@ external interface BottomNavigationActionProps :
     var icon: react.ReactNode?
     var label: react.ReactNode?
     var showLabel: Boolean?
-    var value: dynamic
+    override var value: dynamic
 }
 
 @JsName("default")

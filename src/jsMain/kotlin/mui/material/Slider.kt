@@ -10,7 +10,7 @@ external interface SliderProps :
     PropsWithComponent,
     PropsWithSx {
     var color: SliderColor?
-    var defaultValue: dynamic
+    override var defaultValue: dynamic
     var disabled: Boolean?
     var disableSwap: Boolean?
     var getAriaLabel: dynamic
@@ -28,7 +28,8 @@ external interface SliderProps :
     var slotProps: dynamic
     var slots: dynamic
     var step: Number?
-    var tabIndex: Number?
+    @Suppress("VAR_TYPE_MISMATCH_ON_OVERRIDE")
+    override var tabIndex: Number?
     var track: SliderTrack?
     var value: dynamic
     var valueLabelDisplay: SliderValueLabelDisplay?

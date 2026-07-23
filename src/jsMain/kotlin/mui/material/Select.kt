@@ -13,9 +13,10 @@ external interface SelectProps :
     override var children: react.ReactNode?
     var autoWidth: Boolean?
     var defaultOpen: Boolean?
-    var defaultValue: dynamic
+    override var defaultValue: dynamic
     var displayEmpty: Boolean?
-    var id: String?
+    @Suppress("VAR_TYPE_MISMATCH_ON_OVERRIDE")
+    override var id: String?
     var input: react.ReactNode?
     var inputProps: dynamic
     var label: react.ReactNode?
